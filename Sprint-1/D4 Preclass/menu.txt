@@ -1,3 +1,1 @@
-1:pizza,10.0,no,0
-2:samosa,20.0,yes,2
-3:samosa,20.0,yes,3
+1:pizza,120.0,yes,8

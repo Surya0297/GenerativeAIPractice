@@ -77,7 +77,7 @@ def removeDish():
     print("**** Dish deleted ****")
 
 def saveOrder():
-    print(orders)
+    # print(orders)
     with open("Sprint-1/D4 Preclass/order.txt", "w") as file:
         for order_id, order_data in orders.items():
             order_items = "/".join([f'{{"dish": "{dish["dish"]}", "quantity": {dish["quantity"]}}}' for dish in order_data['order']])
@@ -168,7 +168,7 @@ def showMenu():
     viewStock()
 
 def menu():
-    loadOrders()
+    # loadOrders()
     while True:
         print('0: Show Menu')
         print('1: Add Dish')
