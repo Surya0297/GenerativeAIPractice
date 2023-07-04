@@ -14,7 +14,7 @@ def greet(user):
 
 @app.route('/farewell/<user>')
 def farewell(user):
-    return 'Hello '+user+"!"
+    return 'ByeBye '+user+"!"
 
 @app.route('/students/create/<rollno>/<name>')
 def addStudent(rollno,name):

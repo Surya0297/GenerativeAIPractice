@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zesty Zomato</title>
+    <style>
+        /* Add your CSS styling here */
+    </style>
+</head>
+<body>
+    <h1>Zesty Zomato</h1>
+    <h2>Place an Order</h2>
+    <form id="orderForm">
+        <label for="customerName">Customer Name:</label>
+        <input type="text" id="customerName" name="customerName" required>
+
+        <label for="dishIds">Dish IDs (comma-separated):</label>
+        <input type="text" id="dishIds" name="dishIds" required>
+
+        <input type="submit" value="Place Order">
+    </form>
+
+    <script>
+        const orderForm = document.getElementById('orderForm');
+        orderForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const customerName = document.getElementById('customerName').value;
+            const dishIds = document.getElementById('dishIds').value.split(',');
+
+            const orderData = {
+                customer_name: customerName,
+                dish_ids: dishIds
+            };
+
+            fetch('/orders', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(orderData)
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+                orderForm.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
