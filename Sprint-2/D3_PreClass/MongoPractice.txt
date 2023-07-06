@@ -1,0 +1,267 @@
+
+>_MONGOSH
+
+
+Customers.find()
+ReferenceError: Customers is not defined
+db.Customers.find
+[Function: find] AsyncFunction {
+  returnsPromise: true,
+  apiVersions: [ 1, Infinity ],
+  returnType: 'Cursor',
+  serverVersions: [ '0.0.0', '999.999.999' ],
+  topologies: [ 'ReplSet', 'Sharded', 'LoadBalanced', 'Standalone' ],
+  deprecated: false,
+  platforms: [ 'Compass', 'Browser', 'CLI' ],
+  isDirectShellCommand: false,
+  acceptsRawInput: false,
+  shellCommandCompleter: undefined,
+  help: [Function (anonymous)] Help
+}
+db.Customers.find()
+use local
+switched to db local
+db.Customers.find()
+{
+  _id: '64a703435f0043dd2d66c70a',
+  name: 'Surya',
+  email: 'abc@example.com',
+  address: '123 Main Street',
+  phone_number: '555-123-4567'
+}
+{
+  _id: '64a703bf5f0043dd2d66c70b',
+  name: 'Akash',
+  email: 'akash@gmail.com',
+  address: 'Gwalior',
+  phone_Number: '910970022'
+}
+{
+  _id: '64a7042d5f0043dd2d66c70c',
+  name: 'Ram',
+  email: 'Ram@gmail.com',
+  address: 'Gwalior',
+  phone_Number: '910970022'
+}
+{
+  _id: '64a7045a5f0043dd2d66c70d',
+  name: 'Ram',
+  email: 'Ram@gmail.com',
+  address: 'Gwalior',
+  phone_Number: '910970022'
+}
+{
+  _id: '64a704735f0043dd2d66c70e',
+  name: 'Ram',
+  email: 'Ram@gmail.com',
+  address: 'Gwalior',
+  phone_Number: '910970022'
+}
+db.Customers.find({}, {name: 1, email: 1})
+{
+  _id: '64a703435f0043dd2d66c70a',
+  name: 'Surya',
+  email: 'abc@example.com'
+}
+{
+  _id: '64a703bf5f0043dd2d66c70b',
+  name: 'Akash',
+  email: 'akash@gmail.com'
+}
+{
+  _id: '64a7042d5f0043dd2d66c70c',
+  name: 'Ram',
+  email: 'Ram@gmail.com'
+}
+{
+  _id: '64a7045a5f0043dd2d66c70d',
+  name: 'Ram',
+  email: 'Ram@gmail.com'
+}
+{
+  _id: '64a704735f0043dd2d66c70e',
+  name: 'Ram',
+  email: 'Ram@gmail.com'
+}
+db.Customers.find({id:1})
+{
+  _id: '64a7042d5f0043dd2d66c70c',
+  name: 'Ram',
+  email: 'Ram@gmail.com',
+  address: 'Gwalior',
+  phone_Number: '910970022',
+  id: 1
+}
+db.Customers.find({name: {$regex: '^A'}})
+{
+  _id: '64a703bf5f0043dd2d66c70b',
+  name: 'Akash',
+  email: 'akash@gmail.com',
+  address: 'Gwalior',
+  phone_Number: '910970022'
+}
+db.Customers.find().sort({name: -1})
+{
+  _id: '64a703435f0043dd2d66c70a',
+  name: 'Surya',
+  email: 'abc@example.com',
+  address: '123 Main Street',
+  phone_number: '555-123-4567'
+}
+{
+  _id: '64a7042d5f0043dd2d66c70c',
+  name: 'Ram',
+  email: 'Ram@gmail.com',
+  address: 'Gwalior',
+  phone_Number: '910970022',
+  id: 1
+}
+{
+  _id: '64a7045a5f0043dd2d66c70d',
+  name: 'Ram',
+  email: 'Ram@gmail.com',
+  address: 'Gwalior',
+  phone_Number: '910970022',
+  id: 3
+}
+{
+  _id: '64a704735f0043dd2d66c70e',
+  name: 'Ram',
+  email: 'Ram@gmail.com',
+  address: 'Gwalior',
+  phone_Number: '910970022'
+}
+{
+  _id: '64a703bf5f0043dd2d66c70b',
+  name: 'Akash',
+  email: 'akash@gmail.com',
+  address: 'Gwalior',
+  phone_Number: '910970022'
+}
+db.Customers.update({id: 4}, {{address: "Bhind"}})
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.Customers.updateOne({id: 4}, {$set{address: "Bhind"}})
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.Customers.updateOne({id: 1}, {$set{address: "Bhind"}})
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.Customers.updateOne({id: 1}, {$set{address: "Bhind"}})
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.Customers.updateOne({id: 1}, {$set:{address: "Bhind"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.Customers.find().sort({_id: 1}).limit(3)
+{
+  _id: '64a703435f0043dd2d66c70a',
+  name: 'Surya',
+  email: 'abc@example.com',
+  address: '123 Main Street',
+  phone_number: '555-123-4567'
+}
+{
+  _id: '64a703bf5f0043dd2d66c70b',
+  name: 'Akash',
+  email: 'akash@gmail.com',
+  address: 'Gwalior',
+  phone_Number: '910970022'
+}
+{
+  _id: '64a7042d5f0043dd2d66c70c',
+  name: 'Ram',
+  email: 'Ram@gmail.com',
+  address: 'Bhind',
+  phone_Number: '910970022',
+  id: 1
+}
+db.Customers.deleteOne({_id: 4})
+{
+  acknowledged: true,
+  deletedCount: 0
+}
+db.Customers.deleteOne({_id: 1})
+{
+  acknowledged: true,
+  deletedCount: 0
+}
+db.Customers.deleteOne({id: 1})
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+db.Customers.count({})
+DeprecationWarning: Collection.count() is deprecated. Use countDocuments or estimatedDocumentCount.
+4
+db.Customers.find().sort({_id: 1}).skip(2)
+{
+  _id: '64a7045a5f0043dd2d66c70d',
+  name: 'Ram',
+  email: 'Ram@gmail.com',
+  address: 'Gwalior',
+  phone_Number: '910970022',
+  id: 3
+}
+{
+  _id: '64a704735f0043dd2d66c70e',
+  name: 'Ram',
+  email: 'Ram@gmail.com',
+  address: 'Gwalior',
+  phone_Number: '910970022'
+}
+db.Customers.find({name: ${regex:'^R'}, _id: {$gt: 4}})
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.Customers.find({name: {$regex:'^R'}, _id: {$gt: 4}})
+db.Customers.find({name: {$regex:'^R'}, _id: {$gt: 2}})
+db.Customers.find({name: {$regex:'^R'}, _id: {$gt: 2}})
+db.Customers.find({name: {$regex:'^R'}, id: {$gt: 2}})
+{
+  _id: '64a7045a5f0043dd2d66c70d',
+  name: 'Ram',
+  email: 'Ram@gmail.com',
+  address: 'Gwalior',
+  phone_Number: '910970022',
+  id: 3
+}
+db.Customers.find({
+  $or: [
+    { id: { $lt: 4 } },
+    { name: { $regex: /m$/ } }
+  ]
+});
+{
+  _id: '64a7045a5f0043dd2d66c70d',
+  name: 'Ram',
+  email: 'Ram@gmail.com',
+  address: 'Gwalior',
+  phone_Number: '910970022',
+  id: 3
+}
+{
+  _id: '64a704735f0043dd2d66c70e',
+  name: 'Ram',
+  email: 'Ram@gmail.com',
+  address: 'Gwalior',
+  phone_Number: '910970022'
+}
+db.Customers.find({ phone_Number: { $eq: null, $type: 10 } });
+db.Customers.find({ phone_Number: { $eq: null, $type: 10 } });
+db.Customers.find({ phone_Number: { $eq: null,  $exists: false }  });
+{
+  _id: '64a703435f0043dd2d66c70a',
+  name: 'Surya',
+  email: 'abc@example.com',
+  address: '123 Main Street',
+  phone_number: '555-123-4567'
+}
+{
+  _id: '64a716365f0043dd2d66c70f',
+  name: 'Ram',
+  email: 'Ram@gmail.com',
+  address: 'Gwalior'
+}
+local
+Selection deleted
+
