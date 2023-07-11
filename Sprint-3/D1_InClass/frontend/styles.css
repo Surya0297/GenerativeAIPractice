@@ -1,0 +1,267 @@
+/* Global styles */
+body {
+    background-image: url("back.avif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+    background-color: #F8F8F8;
+  }
+  
+  .left-column {
+    flex: 1;
+    padding: 40px;
+    background-color: #4A4A4A;
+    color: #FFF;
+  }
+  
+  .right-column {
+    flex: 1;
+    padding: 40px;
+    background-color: #e9e4e4;
+    animation: slideIn 1s ease-in-out;
+  }
+  
+  @keyframes slideIn {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  /* Menu Styles */
+  
+  h2 {
+    margin-top: 0;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  
+  /* Orders Styles */
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+  }
+  
+  button[type="submit"],
+  button[type="button"] {
+    padding: 8px 16px;
+    background-color: #4A4A4A;
+    color: #FFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover,
+  button[type="button"]:hover {
+    background-color: #333;
+  }
+  
+  /* Messages Styles */
+  
+  p.message {
+    color: #4A4A4A;
+    font-weight: bold;
+    margin-top: 0;
+  }
+  
+  /* Add Dish Form Styles */
+  
+  #addDishForm {
+    max-width: 400px;
+  }
+  
+  /* Update Dish Form Styles */
+  
+  #updateDishForm {
+    max-width: 200px;
+  }
+  
+  /* Left column button styles */
+
+.left-column button {
+    padding: 8px 16px;
+    background-color: #4A4A4A;
+    color: #FFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .left-column button:hover {
+    background-color: #333;
+  }
+  
+  /* Take Order Form Styles */
+  
+  #takeOrderForm .item-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  #takeOrderForm label {
+    margin-right: 10px;
+  }
+  
+  #takeOrderForm button#add-item-btn {
+    margin-bottom: 10px;
+  }
+  
+  /* View Order Form Styles */
+  
+  #viewOrderForm {
+    max-width: 200px;
+  }
+  
+  /* Update Status Form Styles */
+  
+  #updateStatusForm {
+    max-width: 300px;
+  }/* Menu styles */
+
+.menu-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu-item {
+
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  background-color: #f2f2f2;
+  padding: 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+
+
+.dish-info {
+  flex: 1;
+}
+
+.remove-dish-btn {
+  padding: 8px 16px;
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.show-feedback-btn {
+  padding: 8px 16px;
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.add-feedback-btn{
+  padding: 8px 16px;
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.remove-dish-btn:hover {
+  background-color: #ff3333;
+}
+
+.average-rating {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.star {
+  color: #FFD700;
+  margin-right: 2px;
+}
+
+  
+  /* Add styles for orders */
+.orders-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .order-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .order-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .order-id {
+    font-weight: bold;
+  }
+  
+  .received {
+    background-color: yellow;
+  }
+  
+  .ready {
+    background-color: green;
+  }
+  
+  .preparing {
+    background-color: blue;
+  }
+  .right-column {
+    /* Rest of the styles */
+    /* Add positioning styles */
+    position: relative;
+    background-image: url('back.avif');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    
+  }
+
+  
