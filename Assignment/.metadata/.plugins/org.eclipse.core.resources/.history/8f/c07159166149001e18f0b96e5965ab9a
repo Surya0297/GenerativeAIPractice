@@ -1,0 +1,103 @@
+package com.bluno;
+import java.util.*;
+
+public class WordSearch {
+	
+		private List<String> sentences;
+
+	    public WordSearch() {
+	        sentences = new ArrayList<>();
+	    }
+	    
+	    // Method to Add the sentence to the store
+	    public void add(String sentence) {
+	        
+	        sentences.add(sentence);
+	        System.out.println("Added Successfully!!");
+	    }
+	    
+	    public List<String> search(String word, int K) {
+	    	int i=0;
+	    	int wordcount[][]=new int [ sentences.size()][2];
+	    	
+	        for (String sentence : sentences) {
+	            String[] words = sentence.split("\\s+");
+	            int count=0;
+	            for (String w : words) {
+	                 w = w.toLowerCase().replaceAll("[^a-zA-Z]", "");
+	                if (w.equals(word.toLowerCase())) {
+	                	count++;
+	                }
+	            }
+	            wordcount[i][0]=count;
+	            wordcount[i][1]=i;
+	            i++;
+	            
+	        }
+	        
+	        Arrays.sort(wordcount, new Comparator<int[]>() {
+	            @Override
+	            public int compare(int[] o1, int[] o2) {
+	                // Compare the values in the second column (index 1) in reverse order
+	                return Integer.compare(o2[0], o1[0]);
+	            }
+	        });
+	        
+	    
+	        List<String> result = new ArrayList<>();
+	        
+	        for (int j = 0; j<Math.min(K,sentences.size()); j++) {
+	        	if(wordcount[j][0]>0) {
+	            result.add(sentences.get(wordcount[j][1]));
+	        	}
+	        	}
+
+	        return result;
+	    }
+	    
+	    public static void main(String[] args) {
+	        WordSearch store = new WordSearch();
+	   
+	    try (Scanner sc = new Scanner(System.in)) {
+			int choice=0;
+			do {
+				System.out.println("Choose An Option :");
+				System.out.println("Press 1 to Add a Sentence :");
+				System.out.println("Press 2 to search a Word :");
+				System.out.println("Press 0 To Exit :");
+				choice=sc.nextInt();
+				
+				switch(choice){
+				case 1:
+					System.out.println("Enter Sentence to add:");
+					sc.nextLine();
+					String sentence=sc.nextLine();
+					store.add(sentence);
+					break;
+				case 2:
+					System.out.println("Enter word to search:");
+					String word=sc.next();
+					System.out.println("Enter how many top result you want:");
+					
+					int limit=sc.nextInt();
+					sc.nextLine();
+					List<String> results = store.search(word, limit);
+			        // Print the results
+			        for (String result : results) {
+			            System.out.println(result);
+			        }
+			        break;
+				case 0:
+					break;
+					
+				 default:
+			         System.out.println("Invalid choice. Please try again.");
+			
+					
+				}
+				
+			}while(choice!=0);
+		}
+	    
+	    }
+}

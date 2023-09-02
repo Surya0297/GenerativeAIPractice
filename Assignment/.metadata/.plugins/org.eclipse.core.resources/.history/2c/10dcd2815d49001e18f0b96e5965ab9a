@@ -1,0 +1,73 @@
+package com.bluno;
+import java.util.*;
+
+public class WordSearch {
+	
+		private List<String> sentences;
+
+	    public WordSearch() {
+	        sentences = new ArrayList<>();
+	    }
+	    
+	    // Method to Add the sentence to the store
+	    public void add(String sentence) {
+	        
+	        sentences.add(sentence);
+	    }
+	    
+	    public List<String> search(String word, int K) {
+	    	int i=0;
+	    	int wordcount[][]=new int [ sentences.size()][2];
+	    	
+	        for (String sentence : sentences) {
+	            String[] words = sentence.split("\\s+");
+	            int count=0;
+	            for (String w : words) {
+	                 w = w.toLowerCase().replaceAll("[^a-zA-Z]", "");
+	                if (w.equals(word.toLowerCase())) {
+	                	count++;
+	                }
+	            }
+	            wordcount[i][0]=count;
+	            wordcount[i][1]=i;
+	            i++;
+	            
+	        }
+	        
+	        Arrays.sort(wordcount, new Comparator<int[]>() {
+	            @Override
+	            public int compare(int[] o1, int[] o2) {
+	                // Compare the values in the second column (index 1) in reverse order
+	                return Integer.compare(o2[1], o1[1]);
+	            }
+	        });
+	        
+	        for(int[] in:wordcount) {
+	        	 System.out.println(in[0]);
+	        }
+	        
+	        List<String> result = new ArrayList<>();
+	        
+	        for (int j = sentences.size()-1; j>=sentences.size()-K; j--) {
+	            result.add(sentences.get(wordcount[j][1]));
+	        }
+
+	        return result;
+	    }
+	    
+	    public static void main(String[] args) {
+	        WordSearch store = new WordSearch();
+	        store.add("Hello World! How is the world today?");
+	        store.add("This is great");
+	        store.add("The vast majority of the countries, including all of the great powers, fought as part of two opposing military alliances: the Allies and the Axis");
+
+	        List<String> result1 = store.search("world", 2);
+	        System.out.println(result1);  // Output: ["Hello World! How is the world today?"]
+
+	        store.add("There have been two world wars so far. World needs peace! World doesn't need another war");
+
+	        List<String> result2 = store.search("world", 2);
+	        System.out.println(result2);  // Output: ["There have been two world wars so far. World needs peace! World doesn't need another war", "Hello World! How is the world today?"]
+	    }
+	
+}
